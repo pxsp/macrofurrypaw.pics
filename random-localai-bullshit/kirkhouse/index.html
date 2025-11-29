@@ -3,62 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE KIRK HOUSE</title>
+<title>THE KIRK HOUSE 2.0</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Roboto',sans-serif; background:#0a0a0a; color:#fff; overflow-x:hidden; }
-header { position:sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background:rgba(0,0,0,0.6); }
-header h1 { font-family:'Montserrat',sans-serif; font-size:32px; background:linear-gradient(90deg,#00fff0,#ff00ff,#fffb00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 8px #00fff0; animation:holoText 3s infinite alternate; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Roboto',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden;}
+header{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:20px 50px;background:rgba(0,0,0,0.7);z-index:1000;}
+header h1{font-family:'Montserrat',sans-serif;font-size:32px;background:linear-gradient(90deg,#00fff0,#ff00ff,#fffb00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 8px #00fff0;animation:holoText 3s infinite alternate;}
 @keyframes holoText{0%{text-shadow:0 0 5px #00fff0,0 0 10px #ff00ff;}50%{text-shadow:0 0 10px #ff00ff,0 0 20px #fffb00;}100%{text-shadow:0 0 5px #fffb00,0 0 15px #00fff0;}}
-nav a { color:#fff; text-decoration:none; margin-left:25px; font-weight:700; position:relative; transition:0.3s; }
-nav a::after { content:''; display:block; width:0; height:2px; background:#00fff0; position:absolute; bottom:-5px; left:0; transition:width 0.3s; }
-nav a:hover::after { width:100%; } nav a:hover { color:#00fff0; }
-.hero { position:relative; height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
-.hero canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
-.hero-content { position:relative; z-index:1; animation:fadeInUp 1.2s ease forwards; }
-.hero-content h2 { font-size:64px; letter-spacing:6px; margin-bottom:20px; text-transform:uppercase; background:linear-gradient(90deg,#00fff0,#ff00ff,#fffb00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:holoText 3s infinite alternate; }
-.hero-content p { font-size:24px; margin-bottom:30px; text-shadow:1px 1px 5px #000; }
-.hero-content button { padding:18px 40px; font-size:18px; font-weight:bold; border:none; border-radius:12px; cursor:pointer; background:linear-gradient(90deg,#ff00ff,#00fff0,#fffb00); color:#000; transition: all 0.3s; box-shadow:0 5px 20px rgba(0,0,0,0.5); }
-.hero-content button:hover { transform:scale(1.1) rotate(-2deg); box-shadow:0 10px 30px rgba(0,0,0,0.7); }
-@keyframes fadeInUp { from{opacity:0; transform:translateY(50px);} to{opacity:1; transform:translateY(0);} }
-section { padding:80px 50px; text-align:center; position:relative; z-index:1; }
-section h3 { font-family:'Montserrat',sans-serif; font-size:36px; margin-bottom:50px; background:linear-gradient(90deg,#ff00ff,#00fff0,#fffb00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:holoText 3s infinite alternate; }
-.tiktok-videos { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.video-card { background: rgba(0,0,0,0.6); border-radius:15px; overflow:hidden; cursor:pointer; position:relative; transition: transform 0.4s, box-shadow 0.4s; }
-.video-card:hover { transform:scale(1.08) rotate(-1deg); box-shadow:0 20px 50px rgba(0,0,0,0.7); }
-.video-card img { width:100%; display:block; }
-.video-card video { width:100%; display:block; }
-.video-card p { padding:15px; font-size:18px; font-weight:500; text-align:center; background: rgba(0,0,0,0.4); }
-.floating-particle { position:absolute; width:8px; height:8px; border-radius:50%; background:rgba(0,255,255,0.5); pointer-events:none; }
-.meme-banner { position:fixed; top:20%; left:-300px; background:#ff0; color:#000; font-weight:bold; padding:10px 20px; border-radius:12px; font-family:sans-serif; z-index:100; animation:memeSlide 5s linear infinite; }
-@keyframes memeSlide { 0%{left:-300px;} 50%{left:50%;} 100%{left:120%;} }
-footer { background: rgba(0,0,0,0.8); text-align:center; padding:20px; font-size:16px; }
-/* Glitch text effect */
-.glitch {
-  position: relative;
-  color:#fff;
-  font-size:48px;
-  font-weight:900;
-  text-transform:uppercase;
-}
-.glitch::before, .glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left:0; top:0;
-  width:100%;
-  color:#ff00ff;
-  clip: rect(0,900px,0,0);
-}
-.glitch::after { color:#00fff0; animation: glitch 2s infinite linear alternate-reverse; }
-@keyframes glitch { 0%{clip:rect(0,900px,0,0);}10%{clip:rect(10px,900px,80px,0);}20%{clip:rect(20px,900px,50px,0);}30%{clip:rect(40px,900px,60px,0);}40%{clip:rect(10px,900px,30px,0);}50%{clip:rect(0,900px,80px,0);}60%{clip:rect(30px,900px,90px,0);}70%{clip:rect(20px,900px,50px,0);}80%{clip:rect(10px,900px,60px,0);}90%{clip:rect(0,900px,30px,0);}100%{clip:rect(0,900px,80px,0);}}
+nav a{color:#fff;text-decoration:none;margin-left:25px;font-weight:700;position:relative;transition:0.3s;}
+nav a::after{content:'';display:block;width:0;height:2px;background:#00fff0;position:absolute;bottom:-5px;left:0;transition:width 0.3s;}
+nav a:hover::after{width:100%;}nav a:hover{color:#00fff0;}
+.hero{position:relative;height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;overflow:hidden;}
+.hero canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
+.hero-content{position:relative;z-index:1;animation:fadeInUp 1.2s ease forwards;}
+.hero-content h2{font-size:64px;letter-spacing:6px;margin-bottom:20px;text-transform:uppercase;background:linear-gradient(90deg,#00fff0,#ff00ff,#fffb00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:holoText 3s infinite alternate;}
+.hero-content p{font-size:24px;margin-bottom:30px;text-shadow:1px 1px 5px #000;}
+.hero-content button{padding:18px 40px;font-size:18px;font-weight:bold;border:none;border-radius:12px;cursor:pointer;background:linear-gradient(90deg,#ff00ff,#00fff0,#fffb00);color:#000;transition:all 0.3s;box-shadow:0 5px 20px rgba(0,0,0,0.5);}
+.hero-content button:hover{transform:scale(1.1) rotate(-2deg);box-shadow:0 10px 30px rgba(0,0,0,0.7);}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+section{padding:80px 50px;text-align:center;position:relative;z-index:1;}
+section h3{font-family:'Montserrat',sans-serif;font-size:36px;margin-bottom:50px;background:linear-gradient(90deg,#ff00ff,#00fff0,#fffb00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:holoText 3s infinite alternate;}
+.tiktok-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.video-card{background:rgba(0,0,0,0.6);border-radius:15px;overflow:hidden;cursor:pointer;position:relative;transition:transform 0.4s,box-shadow 0.4s;}
+.video-card:hover{transform:scale(1.08) rotate(-1deg);box-shadow:0 20px 50px rgba(0,0,0,0.7);}
+.video-card img, .video-card video{width:100%;display:block;}
+.video-card p{padding:15px;font-size:18px;font-weight:500;text-align:center;background:rgba(0,0,0,0.4);}
+.floating-particle{position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(0,255,255,0.5);pointer-events:none;}
+.meme-banner{position:fixed;top:20%;left:-300px;background:#ff0;color:#000;font-weight:bold;padding:10px 20px;border-radius:12px;font-family:sans-serif;z-index:100;animation:memeSlide 8s linear infinite;}
+@keyframes memeSlide{0%{left:-300px;}50%{left:50%;}100%{left:120%;}}
+.popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.9);padding:30px;border-radius:20px;z-index:9999;display:none;text-align:center;}
+.popup h2{margin-bottom:20px;}
+.popup button{margin-top:20px;padding:12px 25px;border:none;border-radius:10px;background:linear-gradient(90deg,#ff00ff,#00fff0);color:#000;font-weight:bold;cursor:pointer;}
+.glitch{position:relative;color:#fff;font-size:48px;font-weight:900;text-transform:uppercase;}
+.glitch::before, .glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;}
+.glitch::before{color:#ff00ff;clip:rect(0,900px,0,0);}
+.glitch::after{color:#00fff0;animation:glitch 2s infinite linear alternate-reverse;}
+@keyframes glitch{0%{clip:rect(0,900px,0,0);}10%{clip:rect(10px,900px,80px,0);}20%{clip:rect(20px,900px,50px,0);}30%{clip:rect(40px,900px,60px,0);}40%{clip:rect(10px,900px,30px,0);}50%{clip:rect(0,900px,80px,0);}60%{clip:rect(30px,900px,90px,0);}70%{clip:rect(20px,900px,50px,0);}80%{clip:rect(10px,900px,60px,0);}90%{clip:rect(0,900px,30px,0);}100%{clip:rect(0,900px,80px,0);}}
 </style>
 </head>
 <body>
 
 <header>
-<h1 class="glitch" data-text="THE KIRK HOUSE">THE KIRK HOUSE</h1>
+<h1 class="glitch" data-text="THE KIRK HOUSE 2.0">THE KIRK HOUSE 2.0</h1>
 <nav>
 <a href="#about">About</a>
 <a href="#videos">TikToks</a>
@@ -71,13 +59,14 @@ footer { background: rgba(0,0,0,0.8); text-align:center; padding:20px; font-size
 <div class="hero-content">
 <h2 class="glitch" data-text="Welcome to THE KIRK HOUSE">Welcome to THE KIRK HOUSE</h2>
 <p>Where Charlie Kirk goes viral 💫</p>
-<button onclick="scrollToSection('videos')">Watch TikToks</button>
+<button onclick="openSubway()">Play Subway Surfers</button>
+<button onclick="openMeetKirk()">Meet Kirk!</button>
 </div>
 </section>
 
 <section id="about">
 <h3 class="glitch" data-text="About THE KIRK HOUSE">About THE KIRK HOUSE</h3>
-<p>Step inside the ultimate viral hub. Meme challenges, pranks, and holographic chaos like 67 and trending TikTok content. Go holo or go home!</p>
+<p>Step inside the ultimate viral hub. Meme challenges, pranks, holographic chaos, and 67-level meme energy!</p>
 </section>
 
 <section id="videos">
@@ -92,30 +81,40 @@ footer { background: rgba(0,0,0,0.8); text-align:center; padding:20px; font-size
 
 <div class="meme-banner">67 GOES VIRAL!</div>
 
+<div class="popup" id="subwayPopup">
+<h2>Subway Surfers Mini!</h2>
+<iframe src="https://crazygames.com/embed/subway-surfers" width="600" height="400"></iframe>
+<br><button onclick="closePopup('subwayPopup')">Close</button>
+</div>
+
+<div class="popup" id="kirkPopup">
+<h2>Meet Charlie Kirk (Fake Hologram)</h2>
+<p>👋 Hey! Welcome to THE KIRK HOUSE. Collect coins to unlock exclusive memes!</p>
+<button onclick="closePopup('kirkPopup')">Close</button>
+</div>
+
 <footer>&copy; 2025 THE KIRK HOUSE. All rights reserved.</footer>
 
 <script>
 // Three.js holographic cubes
-let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight,0.1,1000);
-let renderer = new THREE.WebGLRenderer({canvas:document.getElementById('holoCanvas'), alpha:true});
-renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.z = 5;
-let cubes = [];
-let cubeGeometry = new THREE.BoxGeometry(1,1,1);
-for(let i=0;i<8;i++){
-  let cubeMaterial = new THREE.MeshStandardMaterial({color:0xff00ff,transparent:true,opacity:0.6,emissive:0x00fff0});
-  let cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-  cube.position.set(Math.random()*6-3, Math.random()*4-2, Math.random()*-2);
+let scene=new THREE.Scene();
+let camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+let renderer=new THREE.WebGLRenderer({canvas:document.getElementById('holoCanvas'),alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+camera.position.z=5;
+let cubes=[];
+let cubeGeometry=new THREE.BoxGeometry(1,1,1);
+for(let i=0;i<10;i++){
+  let cubeMaterial=new THREE.MeshStandardMaterial({color:0xff00ff,transparent:true,opacity:0.6,emissive:0x00fff0});
+  let cube=new THREE.Mesh(cubeGeometry,cubeMaterial);
+  cube.position.set(Math.random()*6-3,Math.random()*4-2,Math.random()*-2);
   scene.add(cube);
   cubes.push(cube);
 }
-let light = new THREE.PointLight(0xffffff,1);
-light.position.set(5,5,5);
-scene.add(light);
-function animate(){ requestAnimationFrame(animate); cubes.forEach(c=>{c.rotation.x+=0.01; c.rotation.y+=0.01;}); renderer.render(scene,camera);}
+let light=new THREE.PointLight(0xffffff,1); light.position.set(5,5,5); scene.add(light);
+function animate(){requestAnimationFrame(animate); cubes.forEach(c=>{c.rotation.x+=0.01; c.rotation.y+=0.01;}); renderer.render(scene,camera);}
 animate();
-window.addEventListener('resize',()=>{ camera.aspect=window.innerWidth/window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth,window.innerHeight);});
+window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
 
 // TikTok hover videos
 const videos=[
@@ -134,22 +133,28 @@ videos.forEach(video=>{
   container.appendChild(card);
 });
 
-// Floating particles following cursor
+// Floating particles
 for(let i=0;i<50;i++){
-  let p=document.createElement('div');
-  p.className='floating-particle';
-  document.body.appendChild(p);
+  let p=document.createElement('div'); p.className='floating-particle'; document.body.appendChild(p);
   p.style.left=Math.random()*window.innerWidth+'px';
   p.style.top=Math.random()*window.innerHeight+'px';
 }
+
+// Scroll-follow particle movement
 document.addEventListener('mousemove',e=>{
   document.querySelectorAll('.floating-particle').forEach((p,i)=>{
-    p.style.left = (e.clientX + Math.sin(i)*50)+'px';
-    p.style.top = (e.clientY + Math.cos(i)*50)+'px';
+    p.style.left=(e.clientX+Math.sin(i)*50)+'px';
+    p.style.top=(e.clientY+Math.cos(i)*50)+'px';
   });
 });
 
-function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+// Popup functions
+function openSubway(){document.getElementById('subwayPopup').style.display='block';}
+function openMeetKirk(){document.getElementById('kirkPopup').style.display='block';}
+function closePopup(id){document.getElementById(id).style.display='none';}
+
+// Scroll function
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 </script>
 
 </body>
