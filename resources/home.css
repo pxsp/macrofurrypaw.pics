@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('bg.jpg') center/cover no-repeat;
+  overflow: hidden;
+  color: #fff;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: -1;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px) saturate(1.1);
+  padding: 50px 60px;
+  border-radius: 24px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  animation: floaty 6s ease-in-out infinite;
+  z-index: 1;
+  position: relative;
+}
+.card2 {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px) saturate(1.1);
+  padding: 250px 550px;
+  border-radius: 24px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  animation: floaty 6s ease-in-out infinite;
+  z-index: 1;
+  position: relative;
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(8px); }
+  50% { transform: translateY(-6px); }
+}
+
+.name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 22px;
+  background: linear-gradient(90deg, #6af, #c5f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+
+.sub-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 15px;
+  background: linear-gradient(90deg, rgb(255, 129, 249), rgb(191, 0, 255));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+#pfp {
+    width: 64px;
+    border-radius: 20%;
+}
+
+
+
+
+.desc {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-top: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.9);
+}
+
+.sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+.sub-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
